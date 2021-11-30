@@ -35,18 +35,4 @@ A Magento module that will show a small bar at the top of the page, the content 
  - Flush the cache by running `php bin/magento cache:flush`
 
 
-## Configuration
-
-
-
-
-## Specifications
-
- - Cache
-	- CustomBar - custombar_cache_tag > LeSite\CustomBar\Model\Cache\CustomBar
-
-
-## Attributes
-
-
 
