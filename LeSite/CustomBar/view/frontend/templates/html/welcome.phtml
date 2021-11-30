@@ -1,0 +1,68 @@
+<?php
+/**
+ * @var $block \LeSite\CustomBar\Block\Html\Welcome
+ * @var $escaper \Magento\Framework\Escaper
+ */
+?>
+<?php if ($block->customerLoggedIn()) : ?>
+    <div class="greet welcome" data-bind="scope: 'customer'">
+
+        <!-- ko if: customer().firstname  -->
+        <span class="customer-name"
+              data-bind="text: new String('<?= $escaper->escapeHtml(__('Hello, %1', '%1')) ?>').replace('%1', customer().firstname)">
+        </span>
+        <span class="customer-group"><?= __('(Group: %1)', $block->getCustomerGroup()) ?></span>
+        <!-- /ko -->
+
+    </div>
+
+    <div class="customer-actions">
+        <a
+            class="color-cta-dark my-account"
+            title="<?= $escaper->escapeHtml(__('Access your account')) ?>"
+            href="<?= $block->getUrl('customer/account') ?>"><?= $escaper->escapeHtml(__('Access your account')) ?>
+        </a>
+        <span class="or"><?= $escaper->escapeHtml(__('or')) ?></span>
+        <a
+            class="color-cta-dark"
+            title="<?= $escaper->escapeHtml(__('Log out')) ?>"
+            href="<?= $block->getUrl('customer/account/logout') ?>"><?= $escaper->escapeHtml(__('Log out')) ?>
+        </a>
+    </div>
+
+    <script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "customer": {
+                        "component": "Magento_Customer/js/view/customer"
+                    }
+                }
+            }
+        }
+    }
+    </script>
+<?php else: ?>
+    <div class="customer-login">
+        <div class="not-logged-in">
+            <span><?= $escaper->escapeHtml(__('Hello, You\'re not logged in')) ?></span>
+            <span class="customer-group"><?= __('(Group: %1)', $block->getCustomerGroup()) ?></span>
+        </div>
+        <span class="advise">
+            <?= $escaper->escapeHtml(__('Access your registration and check out exclusive benefits!')) ?>
+        </span>
+        <div class="actions">
+            <a
+                title="<?= $escaper->escapeHtml(__('Enter')) ?>"
+                class="action primary button button-primay"
+                href="<?= $block->getUrl('customer/account/login') ?>"><?= $escaper->escapeHtml(__('Enter')) ?>
+            </a>
+            <a
+                class="color-cta-dark button button-primay"
+                href="<?= $block->getUrl('customer/account/create') ?>"><?= $escaper->escapeHtml(__('Create Account')) ?>
+            </a>
+        </div>
+    </div>
+<?php endif; ?>
+

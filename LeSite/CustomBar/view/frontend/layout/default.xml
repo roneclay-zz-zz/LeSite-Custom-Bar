@@ -1,0 +1,8 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="header.container">
+            <block ifconfig="lesite_custombar/general/enabled" name="lesite.custombar" before="-"
+                   class="LeSite\CustomBar\Block\Html\Welcome" template="LeSite_CustomBar::html/welcome.phtml" />
+        </referenceContainer>
+    </body>
+</page>

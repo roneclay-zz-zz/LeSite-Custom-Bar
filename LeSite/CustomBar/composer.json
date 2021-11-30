@@ -1,0 +1,21 @@
+{
+    "name": "lesite/module-custombar",
+    "description": "A Magento module that will show a small bar at the top of the page, the content of this bar must be the customer group associated with the current visitor logged in or not.",
+    "type": "magento2-module",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Rone Clay Santos",
+            "email": "roneclay@gmail.com"        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "LeSite\\CustomBar\\": ""
+        }
+    }
+}
